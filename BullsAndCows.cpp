@@ -4,20 +4,21 @@
 #include "FBullCowGame.h"
 
 void PrintIntro();
-void PlayGame(const int &NumberOfGuesses);
+void PlayGame();
 std::string GetGuess();
 void PrintGuess(std::string Guess);
 bool AskToPlayAgain();
 
+FBullCowGame BCGame;
+
 int main()
 {
 
-	constexpr int NumberOfGuesses = 5;
 	bool ContinuePlaying = false;
 	
 	PrintIntro();
 
-	PlayGame(NumberOfGuesses);
+	PlayGame();
 
 	ContinuePlaying = AskToPlayAgain();
 
@@ -27,13 +28,12 @@ int main()
 	return 0;
 }
 
-void PlayGame(const int &NumberOfGuesses)
+void PlayGame()
 {
-	FBullCowGame BCGame;
-
+	int MaxTries = BCGame.GetMaxTries();
 	std::string Guess = "";
 
-	for (int i = 0; i < NumberOfGuesses; i++)
+	for (int i = 0; i < MaxTries; i++)
 	{
 		Guess = GetGuess();
 		PrintGuess(Guess);
@@ -57,9 +57,10 @@ void PrintIntro()
 std::string GetGuess()
 {
 	std::string Guess = "";
+	int CurrentTry = BCGame.GetCurrentTry();
 
 	// Input guess
-	std::cout << "Enter your guess: ";
+	std::cout << "Try "<< CurrentTry <<". Enter your guess: ";
 	getline(std::cin, Guess);
 
 	return Guess;
