@@ -1,9 +1,11 @@
 #pragma once
 
+#pragma once
+
 #include <string>
 
 class FBullCowGame {
-public:	
+public:
 	int GetCurrentTry();
 	int GetMaxTries();
 	bool IsGameWon();
@@ -11,6 +13,6 @@ public:
 	void Reset();
 
 private:
-	int MyCurrentTry;
-	int MyMaxTries;	
+	int MyCurrentTry = 1;
+	int MyMaxTries = 5;
 };
