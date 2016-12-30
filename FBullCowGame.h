@@ -2,19 +2,22 @@
 
 #include <string>
 
+using FString = std::string;
+using int32 = int;
+
 class FBullCowGame {
 public:
 	FBullCowGame(); // Constructor
 
-	int GetCurrentTry() const;
-	int GetMaxTries() const;
+	int32 GetCurrentTry() const;
+	int32 GetMaxTries() const;
 	bool IsGameWon() const;
 	
-	bool CheckGuessValidity(std::string);
-	void Reset(const int &DefaultCurrentTry, const int &MaxTries);
+	bool CheckGuessValidity(FString);
+	void Reset(const int32 &DefaultCurrentTry, const int32 &MaxTries);
 	// TODO provide a method to count bulls and cows and increment "MyCurrentTry"
 
 private:
-	int MyCurrentTry;
-	int MyMaxTries;
+	int32 MyCurrentTry;
+	int32 MyMaxTries;
 };
