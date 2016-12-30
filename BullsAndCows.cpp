@@ -1,8 +1,8 @@
-/* 
- This is the console executable that makes use of the bull cow class.
- This acts as the view in the MVC pattern, and is responsible for all
- user interaction. For game logic see the FBullCowGame class.
- */
+/*
+This is the console executable that makes use of the bull cow class.
+This acts as the view in the MVC pattern, and is responsible for all
+user interaction. For game logic see the FBullCowGame class.
+*/
 
 #include <iostream>
 #include <string>
@@ -52,8 +52,8 @@ void PlayGame()
 	{
 		Guess = GetGuess(); // TODO make loop checking valid
 
-		// Submit valid guess to the game
-		// print number of bulls and cows
+							// Submit valid guess to the game
+							// print number of bulls and cows
 		PrintGuess(Guess);
 	}
 
