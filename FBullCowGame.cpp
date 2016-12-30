@@ -21,4 +21,19 @@ void FBullCowGame::Reset(const int32 &DefaultCurrentTry, const int32 &MaxTries)
 {
 	MyCurrentTry = DefaultCurrentTry;
 	MyMaxTries = MaxTries;
+
+	const FString HIDDEN_WORD = "planet";
+	MyHiddenWord = HIDDEN_WORD;
+}
+
+// receives valid guess, increments turns, count bulls and cows
+BullCowCount FBullCowGame::SubmitGuess(FString)
+{
+	// increment turn #
+	MyCurrentTry++;
+
+	// update return struct with bulls and cows count
+	BullCowCount BullCowCount;
+
+	return BullCowCount;
 }
