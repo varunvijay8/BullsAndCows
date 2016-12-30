@@ -1,12 +1,21 @@
+/* 
+ This is the console executable that makes use of the bull cow class.
+ This acts as the view in the MVC pattern, and is responsible for all
+ user interaction. For game logic see the FBullCowGame class.
+ */
+
 #include <iostream>
 #include <string>
 
 #include "FBullCowGame.h"
 
+using FText = std::string;
+using int32 = int;
+
 void PrintIntro();
 void PlayGame();
-std::string GetGuess();
-void PrintGuess(std::string Guess);
+FText GetGuess();
+void PrintGuess(FText Guess);
 bool AskToPlayAgain();
 
 FBullCowGame BCGame;
@@ -29,17 +38,17 @@ int main()
 
 void PlayGame()
 {
-	constexpr int DefaultCurrentTry = 1;
-	constexpr int MaxTries = 8;
+	constexpr int32 DefaultCurrentTry = 1;
+	constexpr int32 MaxTries = 8;
 
 	BCGame.Reset(DefaultCurrentTry, MaxTries);
 
-	int AllowedMaxTries = BCGame.GetMaxTries();
-	std::string Guess = "";
+	int32 AllowedMaxTries = BCGame.GetMaxTries();
+	FText Guess = "";
 
 	// TODO change from "for" to "while" loop once
 	// finished validating tries
-	for (int i = 0; i < AllowedMaxTries; i++)
+	for (int32 i = 0; i < AllowedMaxTries; i++)
 	{
 		Guess = GetGuess(); // TODO make loop checking valid
 
@@ -55,7 +64,7 @@ void PlayGame()
 void PrintIntro()
 {
 	// Intro to game and word length
-	constexpr int WORD_LENGTH = 4;
+	constexpr int32 WORD_LENGTH = 4;
 
 	std::cout << "Welcome to Bulls and Cows" << std::endl;
 	printf("Can you guess the %d letter isogram\n", WORD_LENGTH);
@@ -65,10 +74,10 @@ void PrintIntro()
 	return;
 }
 
-std::string GetGuess()
+FText GetGuess()
 {
-	std::string Guess = "";
-	int CurrentTry = BCGame.GetCurrentTry();
+	FText Guess = "";
+	int32 CurrentTry = BCGame.GetCurrentTry();
 
 	// Input guess
 	std::cout << "Try " << CurrentTry << ". Enter your guess: ";
@@ -77,7 +86,7 @@ std::string GetGuess()
 	return Guess;
 }
 
-void PrintGuess(std::string Guess)
+void PrintGuess(FText Guess)
 {
 	std::cout << "You guessed " << Guess << std::endl;
 
@@ -86,7 +95,7 @@ void PrintGuess(std::string Guess)
 
 bool AskToPlayAgain()
 {
-	std::string Response = "";
+	FText Response = "";
 	std::cout << "Do you want to play again(y/n): ";
 	getline(std::cin, Response);
 
